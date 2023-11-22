@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Realizar Pago</title>
+	<link rel="stylesheet" href="/css/styles.css">
+	<style>
+		.tar-lab {
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.tar-inp {
+			height: 25px;
+			margin: 10px 0;
+			padding: 0 10px;
+			border: 1px solid black;
+			border-radius: 5px;
+		}
+		.ent-div {
+			margin-bottom: 20px;
+		}
+		.ent-lab {
+			margin-left: 25px;
+			margin-right: 10px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.ent-inp {
+			height: 25px;
+			width: 80px;
+			padding: 0 10px;
+			border: 1px solid black;
+			border-radius: 5px;
+			text-align: center;
+		}
+		#ent-mon {
+			margin-left: 20px;
+		}
+		#num {
+			width: 150px;
+			text-align: center;
+		}
+		#ven {
+			width: 80px;
+			text-align: center;
+		}
+		#cvv {
+			width: 40px;
+			text-align: center;
+		}
+		.check {
+			margin-left: 25px;
+		}
+		#check {
+			cursor: pointer;
+		}
+		.boton {
+			display: inline-block;
+			padding: 10px 20px;
+			font-size: 16px;
+			text-align: center;
+			text-decoration: none;
+			cursor: pointer;
+			border: 1px solid #333;
+			background-color: #fff;
+			color: #333;
+			font-weight: bold;
+			border-radius: 10px;
+		}
+		.boton:hover {
+			background-color: #eee;
+		}
+		.boton:active {
+			background-color: #ddd;
+			border-color: #888;
+		}
+		.cen-bot {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="cabecera">
+			<div id="img-logo">
+				<img src="" alt="Imagen no encontrada">
+			</div>
+			<div id="opt-cab">
+				<ul>
+					<li><a th:href="@{/cargarActores}">Actores</a></li>
+					<li><a th:href="@{/cargarCategorias}">CategorÃ­as</a></li>
+				</ul>
+			</div>
+			<div id="but-ses">
+				<button style="background-color: #49f0be;">Pablito</button>
+				<button>Registrar</button>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="cabecera-pago" style="margin: 25px;">
+			<div class="tarjetas">
+					<img src="" alt="Imagen no encontrada">
+					<img src="" alt="Imagen no encontrada">
+					<img src="" alt="Imagen no encontrada">
+					<img src="" alt="Imagen no encontrada">
+					<img src="" alt="Imagen no encontrada">
+			</div>
+			<div class="num-tar">
+				<label class="tar-lab">NÃºmero de Tarjeta:</label>
+				<input id="num" class="tar-inp" type="text" placeholder="0000-0000-0000-0000">
+			</div>
+			<div class="ven-tar">
+				<label class="tar-lab">Vencimiento:</label>
+				<input id="ven" class="tar-inp" type="text" placeholder="00/00">
+			</div>
+			<div class="cvv-tar">
+				<label class="tar-lab">CVV:</label>
+				<input id="cvv" class="tar-inp" type="text" placeholder="000">
+			</div>
+			<div class="linea"></div>
+			<div class="ent-mon">
+				<div class="ent-div">
+					<label class="ent-lab">Entradas:</label>
+					<input class="ent-inp" type="text" placeholder="2">
+				</div>
+				<div class="ent-div">
+					<label class="ent-lab">Monto:</label>
+					<input id="ent-mon" class="ent-inp" type="text" placeholder="118.00">
+				</div>
+			</div>
+			<div class="check">
+				<input id="check" type="checkbox">
+				<label>Estoy de acuerdo con los <b>TÃ©rminos y Condiciones, PolÃ­tica de Privacidad y PolÃ­tica de
+						DevoluciÃ³n</b></label>
+			</div>
+		</div>
+		<div class="cen-bot">
+			<a class="boton" href="#">Realizar Pago</a>
+		</div>
+	</main>
+	<footer></footer>
+</body>
+</html>
