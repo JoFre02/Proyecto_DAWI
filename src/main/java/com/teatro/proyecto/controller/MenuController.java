@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.teatro.proyecto.model.Cliente;
 import com.teatro.proyecto.repository.IClienteRepository;
-
+//poto
 @Controller
 public class MenuController {
 	
