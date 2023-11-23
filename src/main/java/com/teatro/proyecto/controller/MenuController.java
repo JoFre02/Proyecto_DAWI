@@ -47,6 +47,11 @@ public class MenuController {
 		return "login";   
 	}
 	
+	@GetMapping("/registroFuncion")
+	public String cargarRegFun() {
+		return "registroFuncion";
+	}
+	
 	@PostMapping("/login")
 	public String validarAcceso(
 			@RequestParam("txtUsuario") String username, 
