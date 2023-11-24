@@ -13,18 +13,11 @@ import com.teatro.proyecto.repository.IFuncionRepository;
 @Controller
 public class FuncionController {
 
-	
-	
-	
 	@GetMapping("/cargaFuncion")
 	public String abrirPagFuncion() {
-		
-		
 		return "funcion";
 	}
 	
 	@Autowired
 	private IFuncionRepository repoUsu;
-	
-	
 }
