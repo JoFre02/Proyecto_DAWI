@@ -51,17 +51,17 @@ insert into tb_tipo values(2, 'cliente');
 
 select*from tb_cliente;
 CREATE TABLE tb_cliente(
-idcli INT auto_increment,
-nomcli VARCHAR(50),
-apecli VARCHAR(50),
-dni CHAR(8),
-username VARCHAR(30) unique,
-clave VARCHAR(30),
+idcli INT auto_increment not null,
+nomcli VARCHAR(50) not null,
+apecli VARCHAR(50) not null,
+dni CHAR(8) not null,
+username VARCHAR(30) unique not null,
+clave VARCHAR(30) not null,
 PRIMARY KEY(idcli)
 );
 
-insert into tb_cliente values(null,'Miguel','Ruiz','87654321','admin@mail.com','admin');
-insert into tb_cliente values(null,'Brayan','Pichiule','87654321','brayanp@mail.com','brayanp')
+insert into tb_cliente values(null,'Brayan','Pichiule','87654321','admin@mail.com','admin');
+insert into tb_cliente values(null,'Miguel','Ruiz','87654321','brayanp@mail.com','brayanp');
 
 
 -- en la tabla area de almacena la cantidad de asientos y la tabla ticket

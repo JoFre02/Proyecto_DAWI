@@ -6,11 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.teatro.proyecto.model.Cliente;
 import com.teatro.proyecto.repository.IClienteRepository;
 
 @Controller
+@RequestMapping
 public class LoginController {
 
 	@Autowired
@@ -19,14 +21,6 @@ public class LoginController {
 	@GetMapping("/login")
 	public String abrirPagLogin() {
 		return "login";   
-	}
-	
-	@GetMapping("/registroUsuario")
-	public String cargarRegUsu(Model model) {
-		
-		model.addAttribute("cliente", new Cliente());
-		
-		return "registroUsuario";
 	}
 	
 	@PostMapping("/login")
@@ -49,6 +43,12 @@ public class LoginController {
 		return "login";
 	}
 	
+	@GetMapping("/registroUsuario")
+	public String cargarRegUsu(Model model) {
+		model.addAttribute("cliente", new Cliente());
+		return "registroUsuario";
+	}
+	
 	@PostMapping("/registrar")
 	public String grabarUsuario(@ModelAttribute Cliente cliente, Model model) {
 		try {
@@ -59,6 +59,7 @@ public class LoginController {
 			model.addAttribute("mensaje", "Error al grabar");
 			model.addAttribute("cssmensaje", "alert alert-danger");
 		}
-		return "login";
+		return "registroUsuario";
 	}
+	
 }

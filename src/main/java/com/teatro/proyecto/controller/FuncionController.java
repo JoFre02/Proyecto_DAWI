@@ -15,9 +15,9 @@ public class FuncionController {
 
 	@GetMapping("/cargaFuncion")
 	public String abrirPagFuncion() {
-		return "funcion";
+		return "registroFuncion";
 	}
 	
 	@Autowired
-	private IFuncionRepository repoUsu;
+	private IFuncionRepository repoFun;
 }

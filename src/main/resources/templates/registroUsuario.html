@@ -34,14 +34,14 @@
 						placeholder="DNI">
 				</div>
 				<div class="col-12">
-					<input name="txtUsuario" type="email" class="form-control bg-secondary" id="exampleInputEmail1"
+					<input name="txtEmail" type="email" class="form-control bg-secondary" id="exampleInputEmail1"
 						placeholder="Correo electrónico">
 				</div>
 				<div class="col-12">
 					<input name="txtClave" type="password" class="form-control bg-secondary" id="exampleInputPassword1"
 						placeholder="Contraseña">
 				</div>
-				<button type="submit" class="btn btn-dark rounded-pill">Registrarme</button>
+				<input type="submit" value="Registrarme" class="btn btn-dark rounded-pill">
 
 				<div th:text="${mensaje}" th:class="${cssmensaje}" role="alert"></div>
 			</form>
