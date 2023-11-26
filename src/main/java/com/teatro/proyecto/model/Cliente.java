@@ -16,5 +16,4 @@ public class Cliente {
 	private String dni;
 	private String username;
 	private String clave;
-	private int idTipo;
 }

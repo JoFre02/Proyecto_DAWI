@@ -20,25 +20,25 @@
 			<div class="mb-5">
 				<h2>Bienvenidos a TicketStore</h2>
 			</div>
-			<form class="row g-3 w-50" action="" method="">
+			<form class="row g-3 w-50" action="/registroUsuario" method="post" th:object="${cliente}">
 				<div class="col-md-6">
-					<input name="txtNombre" type="text" class="form-control bg-secondary" id="exampleInputName"
+					<input name="txtNombre" type="text" th:field="*{nomcli}" class="form-control bg-secondary" id="exampleInputName"
 						placeholder="Nombres">
 				</div>
 				<div class="col-md-6">
-					<input name="txtApellido" type="text" class="form-control bg-secondary" id="exampleInputName"
+					<input name="txtApellido" type="text" th:field="*{apecli}" class="form-control bg-secondary" id="exampleInputName"
 						placeholder="Apellidos">
 				</div>
 				<div class="col-12">
-					<input name="txtDNI" type="number" class="form-control bg-secondary" id="exampleInputName"
+					<input name="txtDNI" type="number" th:field="*{dni}" class="form-control bg-secondary" id="exampleInputName"
 						placeholder="DNI">
 				</div>
 				<div class="col-12">
-					<input name="txtUsuario" type="email" class="form-control bg-secondary" id="exampleInputEmail1"
+					<input name="txtUsuario" type="email" th:field="*{username}" class="form-control bg-secondary" id="exampleInputEmail1"
 						placeholder="Correo electrónico">
 				</div>
 				<div class="col-12">
-					<input name="txtClave" type="password" class="form-control bg-secondary" id="exampleInputPassword1"
+					<input name="txtClave" type="password" th:field="*{clave}" class="form-control bg-secondary" id="exampleInputPassword1"
 						placeholder="Contraseña">
 				</div>
 				<button type="submit" class="btn btn-dark rounded-pill">Registrarme</button>
