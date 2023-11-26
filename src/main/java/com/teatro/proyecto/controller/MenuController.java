@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.teatro.proyecto.model.Cliente;
+import com.teatro.proyecto.model.Funcion;
 import com.teatro.proyecto.repository.IClienteRepository;
+import com.teatro.proyecto.repository.IFuncionRepository;
 //poto
 @Controller
 public class MenuController {
 	
 	@Autowired
 	private IClienteRepository repoCli;
+	
+	@Autowired
+	private IFuncionRepository repoFunc;
 	
 	@GetMapping("/cargarIndex")
 	public String mostrarIndex() {
@@ -48,7 +53,11 @@ public class MenuController {
 	}
 	
 	@GetMapping("/registroFuncion")
-	public String cargarRegFun() {
+	public String cargarFunc(Model model) {
+		
+		model.addAttribute("lstFunciones", repoFunc.findAll());
+		
+		model.addAttribute("funcion", new Funcion());
 		return "registroFuncion";
 	}
 	
