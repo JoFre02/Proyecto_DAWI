@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.teatro.proyecto.model.Cliente;
 import com.teatro.proyecto.model.Funcion;
 import com.teatro.proyecto.repository.IClienteRepository;
@@ -59,12 +61,29 @@ public class MenuController {
 		return "login";   
 	}
 	
+	// listar funciones
 	@GetMapping("/registroFuncion")
 	public String cargarFunc(Model model) {
 		model.addAttribute("lstFunciones", repoFunc.findAll());
 		model.addAttribute("funcion", new Funcion());
 		
 		return "registroFuncion";
+	}
+	
+	// registrar funciones
+	@PostMapping("/registroFuncion")
+	public String registroFuncion(@ModelAttribute Funcion funcion, Model model) {
+		
+		
+		try {
+			repoFunc.save(funcion);
+			model.addAttribute("mensaje", "REGISTRO OK");
+		} catch (Exception e) {
+			model.addAttribute("mensaje", "ERROR AL REGISTRAR");
+		}
+		
+		return "registroFuncion";
+		
 	}
 	
 	@PostMapping("/login")
