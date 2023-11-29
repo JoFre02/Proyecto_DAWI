@@ -12,5 +12,4 @@ public class Categoria {
 	@Id
 	private int idcat;
 	private String nomcat;
-	private String descat;
 }

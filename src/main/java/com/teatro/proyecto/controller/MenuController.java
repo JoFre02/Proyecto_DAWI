@@ -1,21 +1,28 @@
 package com.teatro.proyecto.controller;
 
+import java.io.OutputStream;
+
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.teatro.proyecto.model.Cliente;
 import com.teatro.proyecto.model.Funcion;
 import com.teatro.proyecto.repository.IClienteRepository;
 import com.teatro.proyecto.repository.IEventoRepository;
 import com.teatro.proyecto.repository.IFuncionRepository;
+
+import jakarta.servlet.http.HttpServletResponse;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
 
 @Controller
 public class MenuController {
@@ -28,6 +35,12 @@ public class MenuController {
 	
 	@Autowired
 	private IEventoRepository repoEven;
+	
+	@Autowired
+	private DataSource dataSource;
+
+	@Autowired
+	private ResourceLoader resourceLoader;
 	
 	@GetMapping("/cargarIndex")
 	public String mostrarIndex() {
@@ -119,4 +132,19 @@ public class MenuController {
 		}
 		return "registroUsuario";
 	}
+	/*
+	@GetMapping("/reporteFuncion")
+	public void reporteFuncion(HttpServletResponse response) {
+		response.setHeader("Content-Disposition", "inline;");
+		response.setContentType("application/pdf");
+		try {
+			String ru = resourceLoader.getResource("classpath:demo02.jasper").getURI().getPath();
+			JasperPrint jasperPrint = JasperFillManager.fillReport(ru, null, dataSource.getConnection());
+			OutputStream outStream = response.getOutputStream();
+			JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	*/
 }
