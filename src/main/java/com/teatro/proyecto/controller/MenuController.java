@@ -78,6 +78,7 @@ public class MenuController {
 	@GetMapping("/registroFuncion")
 	public String cargarFunc(Model model) {
 		model.addAttribute("lstFunciones", repoFunc.findAll());
+		model.addAttribute("lstEventos", repoEven.findAll());
 		model.addAttribute("funcion", new Funcion());
 		
 		return "registroFuncion";
@@ -86,8 +87,6 @@ public class MenuController {
 	// registrar funciones
 	@PostMapping("/registroFuncion")
 	public String registroFuncion(@ModelAttribute Funcion funcion, Model model) {
-		
-		
 		try {
 			repoFunc.save(funcion);
 			model.addAttribute("mensaje", "REGISTRO OK");
@@ -132,13 +131,13 @@ public class MenuController {
 		}
 		return "registroUsuario";
 	}
-	/*
+	
 	@GetMapping("/reporteFuncion")
 	public void reporteFuncion(HttpServletResponse response) {
 		response.setHeader("Content-Disposition", "inline;");
 		response.setContentType("application/pdf");
 		try {
-			String ru = resourceLoader.getResource("classpath:demo02.jasper").getURI().getPath();
+			String ru = resourceLoader.getResource("classpath:reporteFuncion.jasper").getURI().getPath();
 			JasperPrint jasperPrint = JasperFillManager.fillReport(ru, null, dataSource.getConnection());
 			OutputStream outStream = response.getOutputStream();
 			JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
@@ -146,5 +145,5 @@ public class MenuController {
 			e.printStackTrace();
 		}
 	}
-	*/
+	
 }
