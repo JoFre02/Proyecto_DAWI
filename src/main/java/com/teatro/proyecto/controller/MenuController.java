@@ -73,6 +73,10 @@ public class MenuController {
 	public String abrirPagLogin() {
 		return "login";   
 	}
+	@GetMapping("/detalleEvento")
+	public String abrirDetalleEvento() {
+		return "detalleEvento";  
+	}
 	
 	// listar funciones
 	@GetMapping("/registroFuncion")

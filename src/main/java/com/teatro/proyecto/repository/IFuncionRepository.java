@@ -6,5 +6,6 @@ import com.teatro.proyecto.model.Funcion;
 
 @Repository
 public interface IFuncionRepository extends JpaRepository<Funcion, Integer> {
+	
 
 }
