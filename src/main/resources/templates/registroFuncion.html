@@ -47,34 +47,34 @@
 					</div>
 					<button type="submit" class="btn btn-primary">Registrar</button>
 					<a href="/reporteFuncion" class="btn btn-info" target="_blank">PDF</a>
-			</form>
-			<div th:text="${mensaje}"></div>
-		</div>
-		<div class="col-6 col-sm-7">
+				</form>
+				<div th:text="${mensaje}"></div>
+			</div>
+			<div class="col-6 col-sm-7">
 
-			<h3>Lista de Funciones</h3>
-			<table class="table table-striped table-hover">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Evento</th>
-						<th>Fecha</th>
-						<th>Inicio</th>
-						<th>Fin</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="f : ${lstFunciones}">
-						<th scope="row" th:text="${f.idfuncion}">1</th>
-						<td th:text="${f.objEvento.nomevento}">xx</td>
-						<td th:text="${f.fecha}">xx</td>
-						<td th:text="${f.horainicio}">xx</td>
-						<td th:text="${f.horafin}">xx</td>
-					</tr>
-				</tbody>
-			</table>
+				<h3>Lista de Funciones</h3>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Evento</th>
+							<th>Fecha</th>
+							<th>Inicio</th>
+							<th>Fin</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="f : ${lstFunciones}">
+							<th scope="row" th:text="${f.idfuncion}">1</th>
+							<td th:text="${f.objEvento.nomevento}">xx</td>
+							<td th:text="${f.fecha}">xx</td>
+							<td th:text="${f.horainicio}">xx</td>
+							<td th:text="${f.horafin}">xx</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
-	</div>
 	</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

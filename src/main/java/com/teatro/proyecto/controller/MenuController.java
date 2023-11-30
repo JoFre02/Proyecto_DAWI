@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.teatro.proyecto.model.Cliente;
+import com.teatro.proyecto.model.Evento;
 import com.teatro.proyecto.model.Funcion;
+import com.teatro.proyecto.repository.ICategoriaRepository;
 import com.teatro.proyecto.repository.IClienteRepository;
 import com.teatro.proyecto.repository.IEventoRepository;
 import com.teatro.proyecto.repository.IFuncionRepository;
@@ -26,6 +28,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 @Controller
 public class MenuController {
+	
+	@Autowired
+	private ICategoriaRepository repoCat;
 	
 	@Autowired
 	private IClienteRepository repoCli;
@@ -43,7 +48,8 @@ public class MenuController {
 	private ResourceLoader resourceLoader;
 	
 	@GetMapping("/cargarIndex")
-	public String mostrarIndex() {
+	public String mostrarIndex(Model model) {
+		model.addAttribute("lstEventos", repoEven.findAll());
 		return "index";
 	}
 	
@@ -60,6 +66,13 @@ public class MenuController {
 	@GetMapping("/cargarRealizarPago")
 	public String mostrarRealizarPago() {
 		return "realizarPago";
+	}
+	
+	@GetMapping("/cargarRealizarEvento")
+	public String mostrarRealizarEvento(Model model) {
+		model.addAttribute("lstCategorias", repoCat.findAll());
+		model.addAttribute("evento", new Evento());
+		return "registrarEvento";
 	}
 	
 	@GetMapping("/cargarRegUsu")
@@ -93,12 +106,29 @@ public class MenuController {
 	public String registroFuncion(@ModelAttribute Funcion funcion, Model model) {
 		try {
 			repoFunc.save(funcion);
+			model.addAttribute("lstFunciones", repoFunc.findAll());
 			model.addAttribute("mensaje", "REGISTRO OK");
 		} catch (Exception e) {
+			model.addAttribute("lstFunciones", repoFunc.findAll());
 			model.addAttribute("mensaje", "ERROR AL REGISTRAR");
 		}
 		
 		return "registroFuncion";
+		
+	}
+	
+	@PostMapping("/registrarEvento")
+	public String registrarEvento(@ModelAttribute Evento evento, Model model) {
+		model.addAttribute("lstCategorias", repoCat.findAll());
+		try {
+			repoEven.save(evento);
+			model.addAttribute("mensaje", "REGISTRO OK");
+		} catch (Exception e) {
+			model.addAttribute("mensaje", "ERROR AL REGISTRAR");
+			System.out.println("" + evento);
+		}
+		
+		return "redirect:/registroFuncion";
 		
 	}
 	

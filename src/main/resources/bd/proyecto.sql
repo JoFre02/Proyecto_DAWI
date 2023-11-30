@@ -6,13 +6,13 @@ CREATE DATABASE bd_teatro;
 USE bd_teatro;
 
 CREATE TABLE tb_categoria(
-idcat INT auto_increment,
+idcat INT,
 nomcat VARCHAR(100),
 PRIMARY KEY(idcat)
 );
 
 CREATE TABLE tb_evento(
-idevento INT auto_increment,
+idevento INT,
 nomevento VARCHAR(100),
 desevento VARCHAR(100),
 idcat INT,
@@ -21,7 +21,7 @@ FOREIGN KEY(idcat) REFERENCES tb_categoria(idcat)
 );
 
 CREATE TABLE tb_funcion(
-idfuncion INT auto_increment,
+idfuncion INT ,
 idevento INT,
 fecha DATE,
 horainicio VARCHAR(6),
@@ -42,7 +42,7 @@ PRIMARY KEY(idcli)
 
 -- en la tabla area de almacena la cantidad de asientos y la tabla ticket
 --  descuenta con las unidades compradas
-CREATE TABLE tb_ticket(
+/*CREATE TABLE tb_ticket(
 idTicket INT auto_increment,
 idfuncion INT,
 id_area int,
@@ -53,7 +53,7 @@ PRIMARY KEY(idTicket),
 FOREIGN KEY (idfuncion) REFERENCES tb_funcion(idfuncion),
 FOREIGN KEY (id_area) REFERENCES tb_area(id_area),
 FOREIGN KEY (idcli) REFERENCES tb_cliente(idcli)
-);
+);*/
 
 /*
 CREATE TABLE tb_area(
@@ -96,39 +96,38 @@ insert into tb_cliente values(null,'Brayan','Pichiule','87654321','admin@mail.co
 insert into tb_cliente values(null,'Miguel','Ruiz','87654321','miguelr@mail.com','miguelr');
 
 -- registro tb_categoria
-insert into tb_categoria values(null,'Comedia');
-insert into tb_categoria values(null,'Romance');
-insert into tb_categoria values(null,'Drama');
-insert into tb_categoria values(null,'Música');
+insert into tb_categoria values(1,'Comedia');
+insert into tb_categoria values(2,'Romance');
+insert into tb_categoria values(3,'Drama');
+insert into tb_categoria values(4,'Música');
 
 -- registro tb_evento
-insert into tb_evento values(null,'BROMATES','Mejores amigos se mudan juntos',1);
-insert into tb_evento values(null,'ROMEO Y JULIETA','Basado en el libro de William Shakespeare',2);
-insert into tb_evento values(null,'HAMLET','Basado en el libro de William Shakespeare',3);
-insert into tb_evento values(null,'EDICIÓN LIMITADA','Musicos que no conocias',4);
-
-insert into tb_evento values(null,'COMEDY FEST',' Grandes comediantes se juntaron',1);
-insert into tb_evento values(null,'LOS AMANTES DE TERUEL','Leyenda de los amantes de Teruel',2);
-insert into tb_evento values(null,'LA DIVINA COMEDIA','Basado en poema de Dante Alighieri',3);
-insert into tb_evento values(null,'GIAN MARCO','Concierto inolvidable con Gian Marco',4);
+insert into tb_evento values(1,'BROMATES','Mejores amigos se mudan juntos',1);
+insert into tb_evento values(2,'ROMEO Y JULIETA','Basado en el libro de William Shakespeare',2);
+insert into tb_evento values(3,'HAMLET','Basado en el libro de William Shakespeare',3);
+insert into tb_evento values(4,'EDICIÓN LIMITADA','Musicos que no conocias',4);
+insert into tb_evento values(5,'COMEDY FEST',' Grandes comediantes se juntaron',1);
+insert into tb_evento values(6,'LOS AMANTES DE TERUEL','Leyenda de los amantes de Teruel',2);
+insert into tb_evento values(7,'LA DIVINA COMEDIA','Basado en poema de Dante Alighieri',3);
+insert into tb_evento values(8,'GIAN MARCO','Concierto inolvidable con Gian Marco',4);
 
 -- registro tb_funcion
-insert into tb_funcion values(null,1,'2023-12-08','19:00','21:00');
-insert into tb_funcion values(null,2,'2023-12-06','18:00','20:00');
-insert into tb_funcion values(null,3,'2023-12-07','18:00','20:00');
-insert into tb_funcion values(null,4,'2023-12-04','19:00','22:00');
-insert into tb_funcion values(null,5,'2023-12-09','19:00','22:00');
-insert into tb_funcion values(null,6,'2023-12-06','20:00','22:00');
-insert into tb_funcion values(null,7,'2023-12-07','20:00','22:00');
-insert into tb_funcion values(null,8,'2023-12-05','19:00','21:00');
-insert into tb_funcion values(null,1,'2023-12-15','19:00','21:00');
-insert into tb_funcion values(null,2,'2023-12-13','18:00','20:00');
-insert into tb_funcion values(null,3,'2023-12-14','18:00','20:00');
-insert into tb_funcion values(null,4,'2023-12-11','19:00','22:00');
-insert into tb_funcion values(null,5,'2023-12-16','19:00','22:00');
-insert into tb_funcion values(null,6,'2023-12-13','20:00','22:00');
-insert into tb_funcion values(null,7,'2023-12-14','20:00','22:00');
-insert into tb_funcion values(null,8,'2023-12-12','19:00','21:00');
+insert into tb_funcion values(1,1,'2023-12-08','19:00','21:00');
+insert into tb_funcion values(2,2,'2023-12-06','18:00','20:00');
+insert into tb_funcion values(3,3,'2023-12-07','18:00','20:00');
+insert into tb_funcion values(4,4,'2023-12-04','19:00','22:00');
+insert into tb_funcion values(5,5,'2023-12-09','19:00','22:00');
+insert into tb_funcion values(6,6,'2023-12-06','20:00','22:00');
+insert into tb_funcion values(7,7,'2023-12-07','20:00','22:00');
+insert into tb_funcion values(8,8,'2023-12-05','19:00','21:00');
+insert into tb_funcion values(9,1,'2023-12-15','19:00','21:00');
+insert into tb_funcion values(10,2,'2023-12-13','18:00','20:00');
+insert into tb_funcion values(11,3,'2023-12-14','18:00','20:00');
+insert into tb_funcion values(12,4,'2023-12-11','19:00','22:00');
+insert into tb_funcion values(13,5,'2023-12-16','19:00','22:00');
+insert into tb_funcion values(14,6,'2023-12-13','20:00','22:00');
+insert into tb_funcion values(15,7,'2023-12-14','20:00','22:00');
+insert into tb_funcion values(16,8,'2023-12-12','19:00','21:00');
 
 select * from tb_funcion;
 
